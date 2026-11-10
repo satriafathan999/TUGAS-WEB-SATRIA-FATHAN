@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <title>Belajar Javascript</title>
+    <head>
+    <body>
+        <h1>Belajar Javascript Dasar</h1>
+        <p id="pesan">Klik tombol dibawah ini</p>
+        
+        <buttom onclick="tampilPesan()">Klik Saya </buttom>
+
+        <script>
+            function tampilPesan() {
+                //Menampilkan popup
+                alert("Hello World");
+                //Menampilkan di console
+                console.log("Tombol berhasil  diklik");
+                //mengubah teks di halaman 
+                document.getElementById("pesan").innerHTML
+                  = "Tombol sudah diklik";
+            }
+        </script>
+
+    </body>
+    </html>
