@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktikum JavaScript Interaktif</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== Header & navigasi ===== -->
+  <header class="topbar">
+    <div class="wrap">
+      <h1>Praktikum JavaScript Interaktif</h1>
+      <p>Validasi form, manipulasi DOM, dan event handling dalam satu halaman.</p>
+      <nav aria-label="Navigasi bagian halaman">
+        <a href="#proyek">Form Pendaftaran</a>
+        <a href="#latihan-1">Latihan 1</a>
+        <a href="#latihan-2">Latihan 2</a>
+        <a href="#latihan-3">Latihan 3</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ===== PROYEK UTAMA: Form Pendaftaran ===== -->
+    <section id="proyek" class="project" aria-labelledby="judul-proyek">
+      <h2 id="judul-proyek">Form Pendaftaran Akun</h2>
+      <p class="lead">Isi data di bawah ini. Setiap kolom diperiksa saat kamu mengetik dan saat tombol Daftar diklik.</p>
+
+      <div class="project-grid">
+
+        <form id="form-daftar" novalidate>
+          <div class="field">
+            <label for="nama">Nama lengkap</label>
+            <input type="text" id="nama" name="nama" autocomplete="name" placeholder="Contoh: Budi Santoso">
+            <p class="error-text" id="error-nama" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="nama@contoh.com">
+            <p class="error-text" id="error-email" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="input-group">
+              <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Minimal 8 karakter">
+              <button type="button" class="btn btn-ghost btn-small" id="toggle-password" aria-controls="password">Tampilkan</button>
+            </div>
+            <p class="error-text" id="error-password" aria-live="polite"></p>
+            <div class="meter" aria-hidden="true"><div id="meter-bar"></div></div>
+            <p class="hint"><span id="hint-jumlah">0 dari 8 karakter minimum</span> &middot; Kekuatan: <strong id="meter-label">belum diisi</strong></p>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn" id="btn-daftar">Daftar</button>
+            <button type="button" class="btn btn-ghost" id="btn-kosongkan">Kosongkan form</button>
+          </div>
+
+          <p class="result" id="hasil-daftar" aria-live="polite"></p>
+        </form>
+
+        <aside class="preview" aria-label="Pratinjau data pendaftaran">
+          <div class="badge" id="preview-badge">?</div>
+          <p class="preview-nama" id="preview-nama">Nama belum diisi</p>
+          <p class="preview-email" id="preview-email">Email belum diisi</p>
+          <p class="preview-status" id="preview-status">0 dari 3 kolom valid</p>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- ===== LATIHAN 1: Ubah Warna Background ===== -->
+    <section id="latihan-1" class="latihan" aria-labelledby="judul-l1">
+      <h2 id="judul-l1">Latihan 1 &mdash; Ubah Warna Background</h2>
+      <p>Klik tombol untuk berganti warna latar halaman: putih, biru muda, kuning, lalu kembali ke putih.</p>
+      <button type="button" class="btn" id="btn-warna">Ganti warna</button>
+      <p class="status-warna" id="teks-warna">Warna aktif: Putih</p>
+    </section>
+
+    <!-- ===== LATIHAN 2: Tampilkan Nama Mahasiswa ===== -->
+    <section id="latihan-2" class="latihan" aria-labelledby="judul-l2">
+      <h2 id="judul-l2">Latihan 2 &mdash; Tampilkan Nama Mahasiswa</h2>
+      <div class="field field-inline">
+        <label for="input-mhs">Nama mahasiswa</label>
+        <div class="input-group">
+          <input type="text" id="input-mhs" autocomplete="off" placeholder="Ketik nama kamu">
+          <button type="button" class="btn" id="btn-sapa">Sapa</button>
+        </div>
+      </div>
+      <p class="result" id="teks-sapaan" aria-live="polite"></p>
+    </section>
+
+    <!-- ===== LATIHAN 3: Validasi Form Login ===== -->
+    <section id="latihan-3" class="latihan" aria-labelledby="judul-l3">
+      <h2 id="judul-l3">Latihan 3 &mdash; Validasi Form Login</h2>
+      <form id="form-login" class="form-login" novalidate>
+        <div class="field">
+          <label for="login-username">Username</label>
+          <input type="text" id="login-username" autocomplete="username" placeholder="Masukkan username">
+          <p class="error-text" id="error-login-username" aria-live="polite"></p>
+        </div>
+        <div class="field">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" autocomplete="current-password" placeholder="Minimal 8 karakter">
+          <p class="error-text" id="error-login-password" aria-live="polite"></p>
+        </div>
+        <button type="submit" class="btn">Masuk</button>
+        <p class="result" id="hasil-login" aria-live="polite"></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Tugas JavaScript &mdash; HTML, CSS, dan JavaScript</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

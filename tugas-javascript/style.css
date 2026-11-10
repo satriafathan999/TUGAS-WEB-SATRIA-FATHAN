@@ -1,0 +1,233 @@
+/* =========================================================
+   style.css - semua tampilan halaman
+   ========================================================= */
+
+/* ---------- Variabel warna ---------- */
+:root {
+  --ink: #16213a;
+  --muted: #566178;
+  --line: #cfd8e6;
+  --brand: #1b5fa7;
+  --brand-dark: #134a85;
+  --soft: #eef3fa;
+  --error: #b3261e;
+  --error-bg: #fdecea;
+  --ok: #1c7043;
+  --ok-bg: #e6f4ec;
+  --focus: #f2a900;
+}
+
+/* ---------- Dasar ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  line-height: 1.55;
+  color: var(--ink);
+  background-color: white;           /* warna awal; diubah oleh Latihan 1 */
+  transition: background-color 0.3s ease;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h2 { margin: 0 0 8px; font-size: 1.35rem; }
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  background: var(--brand);
+  color: white;
+  padding-top: 28px;
+}
+
+.topbar h1 { margin: 0 0 4px; font-size: 1.9rem; }
+.topbar p { margin: 0 0 18px; opacity: 0.92; }
+
+.topbar nav { display: flex; flex-wrap: wrap; gap: 4px; }
+
+.topbar nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 6px 6px 0 0;
+}
+
+.topbar nav a:hover { background: rgba(255, 255, 255, 0.18); }
+
+/* ---------- Proyek utama ---------- */
+.project {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  margin: 28px 0;
+  padding: 28px;
+}
+
+.lead { margin: 0 0 24px; color: var(--muted); }
+
+.project-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+/* ---------- Form ---------- */
+.field { margin-bottom: 18px; }
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 11px 12px;
+  font: inherit;
+  color: var(--ink);
+  background: white;
+  border: 1.5px solid #8793a8;
+  border-radius: 6px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+input.tidak-valid { border-color: var(--error); background: var(--error-bg); }
+input.valid { border-color: var(--ok); }
+
+.input-group { display: flex; gap: 8px; }
+.input-group input { flex: 1; min-width: 0; }
+
+.error-text {
+  min-height: 1.3em;                 /* mencegah layout melompat saat pesan muncul */
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--error);
+}
+
+.hint { margin: 8px 0 0; font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- Indikator kekuatan password ---------- */
+.meter {
+  height: 8px;
+  margin-top: 8px;
+  background: #e3e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+#meter-bar {
+  height: 100%;
+  width: 0;
+  background: #9aa5b8;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  font: inherit;
+  font-weight: 600;
+  padding: 11px 20px;
+  color: white;
+  background: var(--brand);
+  border: 1.5px solid var(--brand);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
+
+.btn-ghost { color: var(--brand); background: white; }
+.btn-ghost:hover { color: var(--brand-dark); background: var(--soft); }
+
+.btn-small { padding: 8px 14px; white-space: nowrap; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---------- Kotak hasil / pesan ---------- */
+.result {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  font-weight: 600;
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+
+.result:empty { display: none; }
+
+.result.sukses { color: var(--ok); background: var(--ok-bg); border: 1px solid var(--ok); }
+.result.gagal { color: var(--error); background: var(--error-bg); border: 1px solid var(--error); }
+
+/* ---------- Pratinjau ---------- */
+.preview {
+  padding: 22px;
+  text-align: center;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.badge {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  background: #9aa5b8;
+  border-radius: 50%;
+  transition: background-color 0.25s ease;
+}
+
+.preview p { margin: 0 0 4px; overflow-wrap: anywhere; }
+.preview-nama { font-size: 1.1rem; font-weight: 700; }
+.preview-email, .preview-status { color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- Latihan ---------- */
+.latihan {
+  padding: 26px 0;
+  border-top: 2px solid rgba(22, 33, 58, 0.15);
+}
+
+.latihan > p { margin-top: 0; }
+.status-warna { margin-bottom: 0; font-weight: 600; }
+.field-inline { max-width: 520px; margin-bottom: 0; }
+.form-login { max-width: 420px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 20px 0 28px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  border-top: 2px solid rgba(22, 33, 58, 0.15);
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 720px) {
+  .project { padding: 20px; }
+  .project-grid { grid-template-columns: 1fr; }
+  .topbar h1 { font-size: 1.5rem; }
+  .actions .btn { flex: 1 1 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}
